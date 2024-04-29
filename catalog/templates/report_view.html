@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Report Filter</h1>
+    <form method="post" action="{% url 'report_results' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+{% if result %}
+    <a href="{% url 'report_results' %}">View Report Results</a>
+{% endif %}
+
+{% endblock %}

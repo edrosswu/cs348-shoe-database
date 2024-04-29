@@ -1,0 +1,57 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Report Results</h1>
+
+    {% if result %}
+        <table style="border-collapse: collapse; width: 100%;">
+            <thead>
+                <tr style="border-bottom: 1px solid black;">
+                    <th style="padding: 8px; border-right: 1px solid black;">Shoe Name</th>
+                    <th style="padding: 8px; border-right: 1px solid black;">Brand Name</th>
+                    <th style="padding: 8px; border-right: 1px solid black;">Lockdown</th>
+                    <th style="padding: 8px; border-right: 1px solid black;">Traction</th>
+                    <th style="padding: 8px; border-right: 1px solid black;">Comfort</th>
+                    <th style="padding: 8px; border-right: 1px solid black;">Looks</th>
+                    <th style="padding: 8px;">Tech</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in result %}
+                    <tr style="border-bottom: 1px solid black;">
+                        <td style="padding: 8px; border-right: 1px solid black;">{{ row.0 }}</td>
+                        <td style="padding: 8px; border-right: 1px solid black;">{{ row.1 }}</td>
+                        <td style="padding: 8px; border-right: 1px solid black;">{{ row.2 }}</td>
+                        <td style="padding: 8px; border-right: 1px solid black;">{{ row.3 }}</td>
+                        <td style="padding: 8px; border-right: 1px solid black;">{{ row.4 }}</td>
+                        <td style="padding: 8px; border-right: 1px solid black;">{{ row.5 }}</td>
+                        <td style="padding: 8px;">{{ row.6 }}</td
+                        
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Column Averages</h2>
+        <table style="border-collapse: collapse; width: 100%; margin-top: 20px;">
+            <thead>
+                <tr style="border-bottom: 1px solid black;">
+                    <th style="padding: 8px; border-right: 1px solid black;">Lockdown</th>
+                    <th style="padding: 8px; border-right: 1px solid black;">Traction</th>
+                    <th style="padding: 8px; border-right: 1px solid black;">Comfort</th>
+                    <th style="padding: 8px;">Looks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid black;">
+                    <td style="padding: 8px; border-right: 1px solid black;">{{ averages.0|floatformat:2 }}</td>
+                    <td style="padding: 8px; border-right: 1px solid black;">{{ averages.1|floatformat:2 }}</td>
+                    <td style="padding: 8px; border-right: 1px solid black;">{{ averages.2|floatformat:2 }}</td>
+                    <td style="padding: 8px;">{{ averages.3|floatformat:2 }}</td>
+                </tr>
+            </tbody>
+        </table>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+{% endblock %}

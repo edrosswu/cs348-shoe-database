@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Sneaker Database Home</h1>
+  <p>
+    Welcome to Sneaker Database, a website developed by
+    <em>Mozilla Developer Network</em>!
+  </p>
+  <h2>Dynamic content</h2>
+  <p>The sneaker database has the following record counts:</p>
+  <ul>
+    <li><strong>Brands:</strong> {{ num_brands }}</li>
+    <li><strong>Shoes:</strong> {{ num_shoes }}</li>
+  </ul>
+{% endblock %}

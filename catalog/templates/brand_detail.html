@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Brand: {{ brand.name }}</h1>
+  <p><strong>Location:</strong> {{ brand.location }}</p>
+  <p><strong>Brand ID:</strong> {{ brand.brandId }}</p>
+
+  <h2>Related Shoes</h2>
+  {% if related_shoes %}
+    <ul>
+      {% for shoe in related_shoes %}
+        <li>{{ shoe.name }} (Shoe ID: {{ shoe.shoeId }})</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No shoes found for this brand.</p>
+  {% endif %}
+{% endblock %}
