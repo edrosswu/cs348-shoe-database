@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Shoe List</h1>
+  {% if shoe_list %}
+    <ul>
+      {% for shoe in shoe_list %}
+      <li>
+        <a href="{{ shoe.get_absolute_url }}">{{ shoe.name }}</a>
+        ({{shoe.brand}})
+      </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no shoes in the database.</p>
+  {% endif %}
+{% endblock %}

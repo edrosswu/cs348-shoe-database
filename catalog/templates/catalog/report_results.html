@@ -1,0 +1,32 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <h1>Report Results</h1>
+    <form method="post" action="{% url 'report_results' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="Submit">Submit</button>
+    </form>
+  {% if result %}
+    <table>
+      <thead>
+        <tr>
+          {% for header in result.0.keys %}
+            <th>{{ header }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in result %}
+          <tr>
+            {% for value in row %}
+              <td>{{ value }}</td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No results found.</p>
+  {% endif %}
+{% endblock %}

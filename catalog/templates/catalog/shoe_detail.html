@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Title: {{ shoe.name }}</h1>
+
+  <p><strong>Brand:</strong> <a href="">{{ shoe.brand }}</a></p>
+  <p><strong>Lockdown:</strong> {{ shoe.lockdown }}</p>
+  <p><strong>Traction:</strong> {{ shoe.traction }}</p>
+  <p><strong>Comfort:</strong> {{ shoe.comfort }}</p>
+  <p><strong>Looks:</strong> {{ shoe.looks }}</p>
+  <p><strong>Tech:</strong> {{ shoe.tech.all|join:", " }}</p>
+{% endblock %}
